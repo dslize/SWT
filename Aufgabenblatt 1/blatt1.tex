@@ -52,6 +52,9 @@
 
 \textbf{Analyse}
 \begin{itemize}
+\item Qualitätssicherung des Pflichtenheftes durchführen\\
+Das Pflichtenheft entsteht in der Analyse-Phase und dient als ein wichtiges Kommunikationsmittel zwischen dem Kunden und dem Projektleiter. Dessen Qualität sollte
+stets gesichert sein.
 \item Gesetzliche Rahmenbedingungen prüfen\\
 Es ist sinnvoll, schon in der Analyse-Phase die gesetzlichen Rahmenbedingungen zu prüfen, um festzustellen, ob die Wünsche des Kunden überhaupt rechtlich gesehen
 umsetzbar sind und im Zweifelsfall nach Alternativen zu suchen.
@@ -70,26 +73,17 @@ so spätere Streitigkeiten mit dem Kunden und kann einen Kompromiss finden. Die 
 \end{itemize} \ \\ \ \\
 \textbf{Entwurf}
 \begin{itemize}
-\item Qualitätssicherung des Pflichtenheftes durchführen\\
-Das Pflichtenheft dient als ein wichtiges Kommunikationsmittel zwischen dem Projektleiter und dem Kunden und dessen Qualität sollte gesichert sein, damit
-der Kunde stets sieht, in welche Richtung das Projekt sich während des Entwurfs bewegt und im Notfall intervenieren kann.
 \item Konzept und Prototyp einer Benutzeroberfläche erstellen\\
 Erste Konzepte und der Prototyp einer Benutzerfläche sollten beim Entwurf entwickelt werden, da diese für den Kunden eine der wichtigsten Sachen darstellt und man
 bei Nicht-Gefallen darauf reagieren kann. Außerdem fallen bei der Erstellung des Konzeptes der Benutzeroberfläche noch eventuell weitere Funktionalitäten auf, welche in 
 den Entwurf mit eingebunden werden sollten.
 \item Datenstrukturen festlegen\\
-Da im Entwurf die gewünschten Funktionalitäten klar werden, sollte man sich im gleichen Zuge auch Gedanken um effiziente Datenstrukturen machen und diese festlegen, wodurch
-in der Implementierungsphase weniger Chaos entsteht.
+Während man sich bei der Analyse bereits Gedanken über mögliche Datenstrukturen machen kann, sollte man sich beim Entwurf auf geeignete und effiziente Datenstrukturen
+festlegen.
 \item Schnittstellen von Programmmodulen definieren\\
-Im Entwurf sollten Programmmodule des Produkts ersichtlich werden. Mittels definitionen von Schnittstellen lassen sich diese dann sinnvoll vernetzen.
-\item Test-Eingabedaten für ein Programmmodul ermitteln\\
-Bei der Definition von Programmmodulen hat man eigentlich stets deren Sinn und Funktionalität im Kopf, weshalb es sinnvoll ist, sich erste Test-Eingabedaten zu überlegen,
-mit welchen die Entwickler dann ind er Implementierungsphase arbeiten können.
+Im Entwurf sollten Programmmodule des Produkts ersichtlich werden. Mittels Definitionen von Schnittstellen lassen sich diese dann sinnvoll vernetzen.
 \item Strukturmodell des gesamten Softwaresystems entwerfen \\
 Der zentrale Aspekt des Entwurfes ist es, sich ein Strukturmodell des Projekts zu überlegen.
-\item Nach bereits vorhandenen, wiederverwendbaren Software-Bibliotheken suchen\\
-Beim Entwurf sollte einem auffallen, dass zur Umsetzung mancher Funktionalitäten vorhandene, wiederverwendbare Software-Bibliotheken sinnvoll oder auch notwendig sind, um
-Zeit einzusparen, weshalb diese nun schon gesucht werden sollten.
 \item Performance-Prognose des Softwaresystems erstellen\\
 Da beim Entwurf ein Gesamteindruck der Software entsteht, kann man eine erste Prognose der Performance des Systems erstellen und diese in der Implementierungsphase
 sinnvoll nutzen, um sich gewisse Ziele in Hinsicht auf Performance zu setzen.
@@ -98,13 +92,12 @@ sinnvoll nutzen, um sich gewisse Ziele in Hinsicht auf Performance zu setzen.
 \begin{itemize}
 \item Code eines Programmmoduls debuggen\\
 Während der Implementierung bringt ein stumpfes Programmieren ohne Tests natürlich nichts; den Code eines Moduls zu debuggen ist deswegen elementar.
-\item Zwei Subsysteme verbinden und testen\\
-Beim Implementieren sollten stets Subsysteme verbunden werden und getestet werden, damit nicht am Ende beim Zusammensetzen grundlegende Fehler auftreten, welche 
-das Neuschreiben großer Teile erfordert. Die Tests erfolgen dabei aber im rahmen des Möglichen, vollständige Tests finden in der entsprechenden Testphase ab. Dieser Punkt
-könnte also genauso gut im Testabschnitt auftauchen.
 \item Leistung der Entwickler bewerten und belohnen\\
 Schon im Implementierungsprozess sind bei Benutzung einer geeigneten Verwaltungssoftware die individuellen Leistungen der Entwickler ersichtlich. Eine Belohnung guter
 Leistungen kann dabei die Moral erhöhen und so die Qualität der Implementierung erhöhen.
+\item Nach bereits vorhandenen, wiederverwendbaren Software-Bibliotheken suchen\\
+Beim Programmieren fällt vielleicht auf, dass für gewisse Funktionalitäten bereits gute Bibliotheken existieren, wodurch sich Zeit sparen lässt und der Code meist weniger
+fehleranfällig ist.
 \item Programmcode kommentieren \\
 Während der Implementierung sollte der Code natürlich stets kommentiert werden, damit er später sauber gewartet oder erweitert werden kann.
 \end{itemize} \ \\ \ \\
@@ -113,15 +106,20 @@ Während der Implementierung sollte der Code natürlich stets kommentiert werden
 \item Benutzer der Software schulen\\
 Bei der Integration sollte der Kunde beziehungsweise der letztendliche Nutzer natürlich zur Nutzung geschult werden, da sonst vielleicht einige Features falsch
 verstanden, falsch genutzt oder als Fehler interpretiert werden können.
+\item Zwei Subsysteme verbinden und testen\\
+Zwar sollten beim Implementieren zumindest rudimentäre Tests über die Kompatibilität von Subsystemen durchgeführt werden, ausführliche Tests finden aber in dieser
+Phase statt. 
 \item Kunden eine Rechnung stellen \\
-Die letztendliche Rechnung kann nun gestellt werden, da einerseits das meiste der Software steht und andererseits der kommende Wartungsaufwand ersichtlich ist.
+Die letztendliche Rechnung kann nun gestellt werden, da am Ende dieser Phase einerseits das meiste der Software steht und andererseits der kommende Wartungsaufwand ersichtlich ist.
+\item Test-Eingabedaten für ein Programmmodul ermitteln\\
+Zum ausgiebigen Testen ist es notwendig, sinnvolle und realitätsnahe Testdaten für ein Programmmodul zu ermitteln.
 \end{itemize} \ \\ \ \\
 \textbf{Wartung}
 \begin{itemize}
 \item Software an neue Umgebung anpassen\\
 Falls sich in der Umgebung des Kunden fundamentale Sachen ändern, muss die Software gewartet und abgeändert werden, um den Anforderungen zu entsprechen.
 \item Dokumentation des Projektablaufes bewerten und archivieren\\
-Ein Großteil des Projekts ist in dieser Phase abgeschlossen, weshalb der Ablauf nun bewertet werden kann.
+Das Projekt sollte nun bis auf die Wartung abgeschlossen sein, weshalb nun eine Bewertung und Archivierung der Dokumentation erfolgen kann.
 \end{itemize} \ \\ \ \\
 Eine solche starre Einteilung von Aktivitäten in Phasen wie im Wasserfallmodell ist problematisch, da dieses System sehr statisch ist und manche Aktivitäten wie 
 zum Beispiel die Qualitätssicherung stets stattfinden sollten, um später größere Probleme zu vermeiden. Tritt beispielsweise in einer frühen Phase ein großer Fehler auf,
@@ -134,12 +132,12 @@ eine schlechte Idee ist, da der Kunden in den Entwicklungsprozess involviert sei
 
 Ein zentraler Gesichtspunkt der SCRUM-Entwicklung ist das Sprint-basierte Arbeitsverhalten, wodurch man zeitlich begrenzte Phase für bestimmte Aufgaben hat und 
 dann die Entwicklung für den nächsten Sprint erneut organisiert wird. Man arbeitet also vor allem nicht ergebnisorientiert, sondern zeitorientiert. \\
-Zudem weist Scrum einer inkrementelle Arbeitsweise auf, welche auf den Sprint-Backlogs beruht. Es werden für einen Sprint von der Gesamtheit der zu erledigenden
+Zudem weist SCRUM einer inkrementelle Arbeitsweise auf, welche auf den Sprint-Backlogs beruht. Es werden für einen Sprint von der Gesamtheit der zu erledigenden
 Aufgaben ein gewisser Teil herausgenommen und zu Sprint-Backlogs organisiert, welche dann abgearbeitet werden können. Ist der Sprint vorbei, so werden die
 Backlogs wieder zurückgesteckt und es geschieht eine neue Organisation in in Backlogs aus der Gesamtheit der Aufgaben für den nächsten Sprint. \\
 Zuletzt lassen sich durch diese Art der Softwareentwicklung die geleisteten Ergebnisse transparent darstellen, der Dialog zum Kunden ist also in sämtlichen
 Phasen sehr wichtig. \par
-Die wohl wichtigste Eigenschaft des extreme Programming ist die inkrementelle, evolutionäre Entwicklung eines oermanent lauffähigen Codes. In diesem sind dann
+Die wohl wichtigste Eigenschaft des extreme Programming ist die inkrementelle, evolutionäre Entwicklung eines permanent lauffähigen Codes. In diesem sind dann
 die Ergebnisse stets sichtbar. \\
 Daraus folgt eine zweite grundlegende, ein wenig kuriose Eigenschaft: Der Code selber und die ständig darauf ausgeführten Tests sind dann de facto das Entwurfsdokument
 und die Dokumentation, welche im klassischen Sinne so nicht existieren. Insbesondere das disziplinierte Testen des Codes und die daraus entstehenden Dokumente sorgen
@@ -161,10 +159,10 @@ eher kleinere Projekte damit zu realisieren.
 \noindent \textbf{Funktionale Anforderungen}\\
 \begin{itemize}
 \item Der Geolocation Service soll nur im Umkreis von 5km nach Übungspartnern suchen\\
-\item Der Stundenplan soll auch offline abrufbar sein mit dem Stand der letzten Synchronisation\\
-\item Der Geolocation Service darf nur ausgeführt werden, wenn der Nutzer explizit dazu zustimmt\\
-\item Die Erstellung eines Accounts soll schnell unkompliziert sein und nicht zu viele Informationen abfragen, mehr optionale Felder\\
+\item Die Anwendung soll in C++ geschrieben werden\\
+\item Die Erstellung eines Accounts soll schnell und unkompliziert sein und nicht zu viele Informationen abfragen, mehr optionale Felder\\
 \item Die grafische Oberfläche soll der des Management Systems der Universität nachempfunden sein, damit der Umstieg nicht allzu schwer ist\\
+\item Die Anwendung soll gut skalierbar sein und mit vielen angemeldeten Usern zurechtkommen\\
 \end{itemize}
 
 
