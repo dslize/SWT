@@ -12,6 +12,8 @@
 \usepackage{mathtools}
 \usepackage{setspace}
 \usepackage{graphicx,color,curves,epsf,float,rotating}
+\usepackage{tikz}
+\usepackage{../tikz-uml}
 
 \floatname{algorithm}{Algorithmus}
 
@@ -55,7 +57,6 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{figure}[H]
   \centerfloat
   \input{swt21.pdf_t}
@@ -63,6 +64,56 @@
   \label{fig:21}
 \end{figure}
 
+\aufgabe{2.2}
+
+\begin{figure}[h!]
+\begin{tikzpicture} 
+\umlclass{Übungsgruppe}{ 
+-- String name \\
+-- int id \\
+-- Benutzer[] members
+}{}
+\umlclass[y=-4]{Benutzer}{
+-- String name
+}{}
+\umlclass[x=8,y=-2]{Manager}{
+}{
++ Benutzer createUser (String name) \\
++ boolean deleteUser (Benutzer user) \\
++ Profil createProfile() \\
++ boolean deleteProfile (Profil profile)
+}
+\umlclass[x=4,y=-6]{Profil}{
+-- int lastChange
+}{}
+\umlclass[x=9,y=-6]{Eintrag}{
+-- String name \\
+-- String value \\
+-- boolean isChangeable
+}{}
+\umluniassoc[pos2=0.8,mult2=1...4,arg2=besitzt Mitglieder]{Übungsgruppe}{Benutzer}
+\umluniassoc[pos2=0.8,mult2=1,arg2=nimmt Teil]{Benutzer}{Übungsgruppe}
+\umluniassoc[pos2=0.9,arg2=verwaltet]{Manager}{Benutzer}
+\umluniassoc[pos2=0.9,mult2=1]{Benutzer}{Profil}
+\umluniassoc[pos2=0.9,mult2=1]{Profil}{Benutzer}
+\umlunicompo[pos2=0.8,mult2=*]{Profil}{Eintrag}
+\end{tikzpicture}
+\end{figure}
 
 \end{document}
 % Nummer des Blattes angepasst?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
