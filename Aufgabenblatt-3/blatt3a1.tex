@@ -1,0 +1,39 @@
+\begin{figure}[h!]
+\begin{tikzpicture}
+\begin{umlseqdiag}
+	\umlobject[class=Kunde]{k}
+	\umlobject[class=Mitarbeiter,x=6]{m}
+%	\umlobject[class=Pommes,x=11]{p}
+
+	\begin{umlcall}[op=fragtNach(Pommes),dt=5]{k}{m}
+		\begin{umlcall}[op=rückfrage(Mayo),return=ja,dt=5]{m}{k}
+		\end{umlcall}
+		
+		\begin{umlcreatecall}[class=Pommes,x=11,op=vorbereiten()]{m}{p}
+		\end{umlcreatecall}
+
+		\begin{umlcallself}[op=warten(),dt=6]{k}
+		\end{umlcallself}
+
+		\begin{umlcall}[type=return,op=p,dt=6]{p}{m}
+
+			\begin{umlcall}[op={bestellungLiefern(p, mayo)}]{m}{k}
+			\end{umlcall}
+
+			\begin{umlcall}[op=essen(schnell)]{k}{p}
+			\end{umlcall}
+
+		\end{umlcall}
+
+		\umlsdnode[dt=1,name=end-p]{p}
+
+	\end{umlcall}
+
+	\tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2pt}}
+	\draw[line width=0.5mm] 
+		($ (end-p) - (0.2,0.5) $) -- ++(.4,.4)
+		($ (end-p) - (-.2,0.5) $) -- ++(-.4,.4);
+
+\end{umlseqdiag}
+\end{tikzpicture}
+\end{figure}
