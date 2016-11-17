@@ -3984,9 +3984,9 @@
   }%
   %
   \ifnum\tikzumlInCreateCall=1%
-    \draw (\tikzumlCreateCallObjectSrc -| \tikzumlObjectX,0) node[tikzuml object box style] (\tikzumlObjectName) {\tikzumlObjectName\tikzumlobject@ddot\tikzumlObjectClass};%
+	\draw (\tikzumlCreateCallObjectSrc -| \tikzumlObjectX,0) node[tikzuml object box style] (\tikzumlObjectName) {\underline{\tikzumlObjectName\tikzumlobject@ddot\tikzumlObjectClass}};%
   \else%
-    \node[tikzuml object box style] (\tikzumlObjectName) at (\tikzumlObjectX,\tikzumlObjectY) {\tikzumlObjectName\tikzumlobject@ddot\tikzumlObjectClass};%
+	\node[tikzuml object box style] (\tikzumlObjectName) at (\tikzumlObjectX,\tikzumlObjectY) {\underline{\tikzumlObjectName\tikzumlobject@ddot\tikzumlObjectClass}};%
   \fi%
   %
   \ifthenelse{\equal{\tikzumlObjectStereo}{multi}}{%
@@ -4541,6 +4541,7 @@
                                     dt/.initial=\tikzumlCreateCallDefaultDT, name/.initial=call-\thetikzumlCallNum,%
                                     draw/.initial=\tikzumlDefaultDrawColor, fill/.initial=\tikzumlCallDefaultFillColor,%
                                     text/.initial=\tikzumlDefaultTextColor,%
+									op/.initial=create,%
                                     draw obj/.initial=\tikzumlDefaultDrawColor, fill obj/.initial=\tikzumlObjectDefaultFillColor,%
                                     text obj/.initial=\tikzumlDefaultTextColor,%
                                     no ddots/.is if=tikzumlcreatecallNoDDots,%
@@ -4554,6 +4555,7 @@
   \pgfkeys{/tikzuml/createcall/.cd, #1}%
   \pgfkeys{/tikzuml/createcall/.cd, x/.get=\tikzumlCreateCallX, stereo/.get=\tikzumlCreateCallStereo,%
                                     class/.get=\tikzumlCreateCallClass,%
+									op/.get=\tikzumlCreateCallOp,%
                                     dt/.get=\tikzumlCreateCallDT, name/.get=\tikzumlCreateCallName,%
                                     draw/.get=\tikzumlCreateCallDrawColor, fill/.get=\tikzumlCreateCallFillColor,%
                                     text/.get=\tikzumlCreateCallTextColor,%
@@ -4610,7 +4612,7 @@
   \iftikzumlcreatecallNoDDots%
     \umlobject[x=\tikzumlCreateCallX, stereo=\tikzumlCreateCallStereo, class=\tikzumlCreateCallClass, draw=\tikzumlCreateCallObjectDrawColor, fill=\tikzumlCreateCallObjectFillColor, text=\tikzumlCreateCallObjectTextColor, no ddots]{#3}%
   \else
-    \umlobject[x=\tikzumlCreateCallX, stereo=\tikzumlCreateCallStereo, class=\tikzumlCreateCallClass, draw=\tikzumlCreateCallObjectDrawColor, fill=\tikzumlCreateCallObjectFillColor, text=\tikzumlCreateCallObjectTextColor]{#3}%
+	\umlobject[x=\tikzumlCreateCallX, stereo=\tikzumlCreateCallStereo, class=\tikzumlCreateCallClass, draw=\tikzumlCreateCallObjectDrawColor, fill=\tikzumlCreateCallObjectFillColor, text=\tikzumlCreateCallObjectTextColor]{#3}%
   \fi
   %
   \draw (\csname tikzumlLastChild@\tikzumlCreateCallSrc@nodeName \endcsname |- #3)+(0,-0.5*\tikzumlCreateCallDT ex) node[name=sb-\tikzumlCreateCall@nodeName, tikzuml activity style] {};%
@@ -4619,7 +4621,7 @@
   \xdef\tikzumlCallBottomSrc{sb-\tikzumlCreateCall@nodeName}%
   %
   \begin{pgfonlayer}{connections}%
-  \draw[tikzuml synchron-msg style, \tikzumlCreateCallDrawColor] (st-\tikzumlCreateCall@nodeName) -- (#3) node[midway, above, font=\tikzumlDefaultFont, text=\tikzumlCreateCallTextColor, name=\tikzumlCreateCall@nodeName-op] {create};%
+  \draw[tikzuml synchron-msg style, \tikzumlCreateCallDrawColor] (st-\tikzumlCreateCall@nodeName) -- (#3) node[midway, above, font=\tikzumlDefaultFont, text=\tikzumlCreateCallTextColor, name=\tikzumlCreateCall@nodeName-op] {\tikzumlCreateCallOp};%
   \end{pgfonlayer}%
   %
   \ifnum\thetikzumlCallLevel=0%
