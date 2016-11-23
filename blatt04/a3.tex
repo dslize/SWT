@@ -1,1 +1,20 @@
-\textbf{Entwurfsmuster}
+\aufgabenteil{a)}
+Komposition
+\aufgabenteil{b)}
+%\begin{center}
+\begin{tikzpicture}
+\umlabstract[x=3]{<<abstract>> Shape}{}{
++ getDimension() : Dimension
+}
+\umlclass[y=-4]{SimpleShape}{}{
++ getDimension() : Dimension
+}
+\umlclass[x=6, y=-4]{ComplexShape}{}{
++ getDimension() : Dimension
+}
+
+\umlinherit[]{SimpleShape}{<<abstract>> Shape}
+\umlinherit[]{ComplexShape}{<<abstract>> Shape}
+\umlaggreg[geometry = |-, mult2 = *]{ComplexShape}{<<abstract>> Shape}
+\end{tikzpicture}
+%\end{center}
