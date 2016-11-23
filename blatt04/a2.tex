@@ -2,33 +2,33 @@
 
 \umlstateinitial[name=start]
 
-\umlbasicstate[name=normal,x=2]{Normal}
-\umlbasicstate[name=big,x=10]{Big}
-
-\umlbasicstate[name=power,x=7,y=3]{Invincible}
-
-\umlbasicstate[name=dead,x=5,y=-3]{Dead}
-
 \umlstatefinal[name=over,x=5,y=-5]
 
-\umltrans{start}{normal}
+\begin{umlstate}[name=charstate]{Character}
+	\umlbasicstate[name=normal,x=2]{Normal}
+	\umlbasicstate[name=big,x=10]{Big}
 
-\umltrans[arg=Bonbon / Grow,anchor1=22,anchor2=155,pos=0.5]{normal}{big}
-\umltrans[arg=Hit / Shrink,anchor1=-185,anchor2=5,pos=0.5]{big}{normal}
+	\umlbasicstate[name=power,x=7,y=3]{Invincible}
 
-\umlVHtrans[arg=PowerMoon / Grow,pos=1.5]{normal}{power}
-\umltrans[arg=PowerMoon / Grow]{big}{power}
-\umlHVtrans[arg=after 00:00:10,pos=1.5]{power}{big}
+	\umlbasicstate[name=dead,x=5,y=-3]{Dead}
 
-\umlHVtrans[arg=Hit / Die,anchor1=-25,anchor2=80,pos=1.7]{normal}{dead}
-\umlHVtrans[arg=Fall / Die,anchor1=-35,anchor2=100,pos=1.8,align=right]{normal}{dead}
-\umlVHtrans[arg=Fall / Die,pos=1.5]{big}{dead}
+	\umltrans{start}{normal}
 
-\umlHVtrans[arg={after 00:00:00},pos=1.62]{dead}{normal}
-\umlHVtrans[arg={[Lifes > 0] / Restart},pos=1.38]{dead}{normal}
-\umltrans[arg={after 00:00:00 [Lifes == 0] / GameOver},pos=0.5]{dead}{over}
+	\umltrans[arg=Bonbon / Grow,anchor1=22,anchor2=155,pos=0.5]{normal}{big}
+	\umltrans[arg=Hit / Shrink,anchor1=-185,anchor2=5,pos=0.5]{big}{normal}
 
+	\umlVHtrans[arg=PowerMoon / Grow,pos=1.5]{normal}{power}
+	\umltrans[arg=PowerMoon / Grow]{big}{power}
+	\umlHVtrans[arg=after 00:00:10,pos=1.5]{power}{big}
+
+	\umlHVtrans[arg=Hit / Die,anchor1=-25,anchor2=80,pos=1.7]{normal}{dead}
+	\umlHVtrans[arg=Fall / Die,anchor1=-35,anchor2=100,pos=1.8,align=right]{normal}{dead}
+	\umlVHtrans[arg=Fall / Die,pos=1.5]{big}{dead}
+	\umlHVHtrans[arg=Fall / Die,pos=2.2,anchor1=-20,arm1=0.4,anchor2=20,align=right]{power}{dead}
+
+	\umlHVtrans[arg={after 00:00:00},pos=1.62]{dead}{normal}
+	\umlHVtrans[arg={[Lifes > 0] / Restart},pos=1.38]{dead}{normal}
+	\umltrans[arg={after 00:00:00 [Lifes == 0] / GameOver},pos=0.5]{dead}{over}
+\end{umlstate}
 
 \end{tikzpicture}
-
-\textbf{TODO:} Oberzustand einfügen, kosmetische Verfeinerungen, Transition Invincible -> Dead mit Fall / Die !!
