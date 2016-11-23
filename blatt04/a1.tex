@@ -1,1 +1,45 @@
-\textbf{Zustandsdiagramm: Kaffeeautomat}
+\begin{tikzpicture}
+
+	\umlstateinitial[name=start,x=1]
+
+	\umlstatefinal[name=end,x=3]
+
+	\umlbasicstate[name=0,x=2,y=-2]{0 \euro}
+	\umlbasicstate[name=05,x=2,y=-5]{0,50 \euro}
+	\umlbasicstate[name=1,x=2,y=-8]{1 \euro}
+	\umlbasicstate[name=fin,y=-5,x=9]{Getränk fertig}
+
+	\umlHVtrans[anchor2=100]{start}{0}
+	\umlVHtrans[anchor1=80]{0}{end}
+
+	\umltrans[arg=50c]{0}{05}
+	\umlHVHtrans[arg=1 Euro,anchor1=160,anchor2=-160,pos=0.2,arm1=-2.2,align=right]{0}{1}
+
+	\umltrans[arg={50c,},pos=0.3]{05}{1}
+	\umltrans[arg=1 Euro / 50c-Rückgabe,pos=0.7]{05}{1}
+	\umltrans[arg=Kaffeeknopf / Kaffee machen,pos=0.5]{05}{fin}
+	\umlHVHtrans[arg=Abbruchknopf / 50c-Rückgabe,anchor1=30,anchor2=-30,
+		arm1=0.4,pos=1.3,align=left]{05}{0}
+
+	\umlHVtrans[arg=Espressoknopf / Espresso machen,pos=0.5,anchor1=10,
+		anchor2=-100]{1}{fin}
+	\umlHVtrans[arg=Kaffeknopf / Kaffee machen \& 50c-Rückgabe,pos=0.5,
+		anchor1=-30,anchor2=-80]{1}{fin}
+	\umltrans[recursive direction=bottom to bottom,recursive=-50|-130|20,
+		arg={50c / 50c-Rückgabe,},pos=1.5]{1}{1}
+	\umltrans[recursive direction=bottom to bottom,recursive=-50|-130|42,
+		arg=1 Euro / 1-Euro-Rückgabe,pos=1.5,draw opacity=0]{1}{1}
+	\umlHVHtrans[arg=Abbruchknopf /,anchor1=160,anchor2=-160,
+		arm1=-2,pos=1.2,align=left]{1}{0}
+	\umlHVHtrans[arg=1-Euro-Rückgabe,anchor1=160,anchor2=-160,
+		arm1=-2,pos=1.1,align=left]{1}{0}
+
+	\umlVHtrans[arg=Entnehmen,pos=1.5]{fin}{0}
+	\umltrans[recursive direction=right to right,recursive=30|-30|20,
+		arg={50c / 50c-Rückgabe,},pos=1.35]{fin}{fin}
+	\umltrans[recursive direction=right to right,recursive=30|-30|20,
+		arg=1 Euro / 1-Euro-,pos=1.65,draw opacity=0]{fin}{fin}
+	\umltrans[recursive direction=right to right,recursive=30|-30|20,
+		arg=Rückgabe,pos=1.85,draw opacity=0]{fin}{fin}
+
+\end{tikzpicture}
