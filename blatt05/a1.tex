@@ -7,7 +7,9 @@
 	\umlsimpleclass[anchor=north west]{Institut}{}{}
 	\umlclass[anchor=south west,y=-6]{Forschungsprojekt}
 		{name : String \\ startDate: int \\ endDate : int}{}
-	\umlclass[x=5,anchor=north,type=abstrakt]
+	% The \text{} is so that abstract isn't interpreted as a special type and is
+	% written as literally <<abstract>>
+	\umlclass[x=5,anchor=north,type=abstrac\text{t}]
 		{Mitarbeiter}{name : String \\ mitarbeiterID : int}{}
 	\umlsimpleclass[x=8,y=0,anchor=north west]{Wissenschaftler}
 	\umlsimpleclass[x=8,y=-1,anchor=north west]{TechnischerMitarbeiter}
@@ -18,8 +20,10 @@
 	\umlsimpleclass[x=10,y=-9]{Labor}
 	\umlsimpleclass[x=11,y=-9,anchor=west]{Kantine}
 	
-	\umluniassoc[anchor2=153,mult=*,pos=0.85]{Institut}{Mitarbeiter}
-	\umluniassoc[anchor1=153,mult=1,align=right,pos=0.6]{Mitarbeiter}{Institut}
+	\umlVHVuniassoc[anchor2=90,anchor1=90,arm1=0.5,arg=Arbeitsplatz,mult=*,pos=2.5]
+		{Institut}{Mitarbeiter}
+	\umlVHVuniassoc[anchor1=90,anchor2=90,arm1=0.5,arg=arbeitet,mult=1,pos=2.4]
+		{Mitarbeiter}{Institut}
 
 	\umlHVHinherit[anchor2=20]{Wissenschaftler}{Mitarbeiter}
 	\umlHVHinherit[anchor2=0]{TechnischerMitarbeiter}{Mitarbeiter}
@@ -47,9 +51,9 @@
 	\umlHVuniassoc[mult2=1..15,arg2=Thema,anchor2=-70,anchor1=10,pos=1.9]
 		{Forschungsprojekt}{Mitarbeiter}
 	
-	\umluniassoc[mult2=*,anchor1=-60,anchor2=119,align=left,pos=0.8]
+	\umluniassoc[mult=*,anchor1=-60,anchor2=119,align=left,pos=0.8]
 		{Institut}{Forschungsprojekt}
-	\umluniassoc[mult2=*,anchor2=-60,anchor1=119,pos=1]
+	\umluniassoc[mult=1,anchor2=-60,anchor1=119,pos=0.9]
 		{Forschungsprojekt}{Institut}
 
 \end{tikzpicture}
