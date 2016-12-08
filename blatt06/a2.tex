@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+
+\umlstateinitial[name=start,anchor=south west,x=0,y=0]
+
+\umlbasicstate[name=standby,x=1,anchor=west,y=0]{Standby}
+
+\umlbasicstate[name=play,anchor=west,y=-5]{Nachrichten abspielen}
+
+\umltrans{start}{standby}
+
+\umltrans[recursive=70|110|1cm,recursive direction=top to top,arg={WD[KN]/},
+	pos=2]{standby}{standby}
+
+\umlHVtrans[arg={WD[EN]/},anchor1=210,anchor2=140,pos=1.45,align=right]{standby}{play}
+\umlHVtrans[arg={NA},anchor1=210,anchor2=140,pos=1.55,align=right]{standby}{play}
+\umltrans[arg={SD/WS},anchor1=50,anchor2=-110,align=right,pos=0.2]{play}{standby}
+\umltrans[arg={[AN]/WS},anchor1=35,anchor2=-78,align=left,pos=0.2]{play}{standby}
+
+\begin{umlstate}[name=call,x=7,y=-1]{Anruf}
+	\umlstateinitial[anchor=south west,name=cstart]
+	\umlbasicstate[name=cva,x=4]{Verbindungsaufbau}
+	\umlbasicstate[name=ca,y=-3]{Aufnahme}
+	\umlstatefinal[anchor=south east,name=end,x=5,y=-3]
+
+	\umltrans{cstart}{cva}
+	\umlVHVtrans[anchor1=-130,anchor2=90,arm1=-0.2,arg={[cmax]/A1,AS},pos=2.3]
+		{cva}{ca}
+	\umltrans[arg={AL/UT},pos=0.5,anchor1=3]{ca}{end}
+	\umltrans[anchor1=-56,arg={[=max]/A2,UT},align=right,pos=0.9]{cva}{end}
+\end{umlstate}
+
+\umlHVHtrans[anchor1=200,anchor2=-30,arm1=-3,arg={AL/VT},pos=2.27,align=right]
+	{cva}{standby}
+\umltrans[anchor1=9,anchor2=148,arg={AK/AA},pos=0.5]{standby}{call}
+
+\end{tikzpicture}
