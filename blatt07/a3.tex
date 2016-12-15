@@ -1,0 +1,19 @@
+\aufgabenteil{a)}
+Der Zweigüberdeckungstest ist stärker, da nicht nur alle Anweisungen ausgeführt werden, sondern auch alle möglichen Entscheidungen
+(false \& true) durchlaufen werden. Hier kann sich herausstellen, dass manche Verzweigungen nie benutzt werden und somit eine unnötige
+Abfrage darstellen. 
+
+
+\aufgabenteil{b)}
+Die folgende Funktion soll das Vorzeichen des übergebenen Parameters berechnen. -1 für negativ, +1 für positiv, 0 für 0.
+\begin{lstlisting}[language=Java]
+1:   public static int sign(int x){
+2:      if(x<0){
+3:         return -1;
+4:      } else {
+5:         return 1;
+6:      }
+7:   }
+\end{lstlisting}
+
+\aufgabenteil{c)}

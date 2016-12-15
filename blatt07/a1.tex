@@ -1,0 +1,27 @@
+\aufgabenteil{a)}
+Ohne Betrachtung des Programmcodes wäre das Black-Box Verfahren eine geeignete Weise zum Testen. In dem Rahmen möchte man sich möglichst
+geschickt Eingabedaten überlegen, womit man die Methode testen könnte.\\
+Dazu ist es sinnvoll, sich Äquivalenzklassen für die Eingabedaten zu entwickeln, um mit so wenig wie möglich Eingaben die Methode so umfangreich
+wie es geht zu testen. Die Äquivalenzklassen von den Eingabedaten für diese Methode könnten wie folgt aussehen:
+\begin{itemize}
+    \item x < 0
+    \item x > 0
+    \item x = 0
+\end{itemize}
+Insbesondere sollte die 0 geprüft werden, da unter Umständen in der Methode Divisionen vorkommen könnten, wobei 0 als Nenner problematisch wäre.
+Außerdem sollte man noch explizit Integer.MAX\_VALUE und Integer.MIN\_VALUE testen, da die Methode arithmetische Operationen verwenden könnte, welche
+Überläufe ausgelöst werden könnten, was das Ergebnis verfälschen würde. Da außerdem auch null in die Methode übergeben werden könnte, sollte geprüft
+werden, wie die Methode damit umgeht.
+
+\aufgabenteil{b)}
+
+\begin{itemize}
+    \item x < 0: Eingabemenge: \{ Integer.MIN\_VALUE, -49783, -14, -1\}. Neben dem oben genannten Randfall Integer.MIN\_VALUE sollte auch noch -1 als Randfall
+        betrachtet werden, da eventuell arithmetische Operationen durchgeführt werden, wodurch die Eingabe in den positiven Bereich rutscht. Außerdem sollen
+        mit -14 und -49783 noch ein zufälliger ``kleiner'' und ``großer'' Wert getestet werden, da nur Randfallbetrachtungen nicht ausreichen.
+    \item x > 0: Eingabemenge: \{ 1, 15, 59285, Integer.MAX\_VALUE\}. Neben dem oben genannten Randfall Integer.MAX\_VALUE sollte auch noch 1 als Randfall
+        betrachtet werden, da eventuell arithmetische Operationen durchgeführt werden, wodurch die Eingabe in den negativen Bereich rutscht. Außerdem sollen
+        mit 15 und 59285 noch ein zufälliger ``kleiner'' und ``großer'' Wert getestet werden, da nur Randfallbetrachtungen nicht ausreichen.
+    \item x = 0: Eingabemenge: \{ 0 \}.
+\end{itemize}
+Zudem sollte auch noch null als Eingabe getestet werden.
