@@ -1,0 +1,14 @@
+Ohne ein zu überprüfendes Programm, muss man die Testfälle aus der Spezifikation ableiten.
+Dazu kann man den Blackbox Test einsetzen, da man keine Kenntnis hat über die Struktur des Programms, wohl aber über die gewünschte Funktionalität.
+(Siehe Aufgabenstellung.) Man kann das Verhalten der Funktion durch folgende Mengen testen:
+\begin{itemize}
+\item Gerade Zahlen \{2, 4, 6, …\}
+\item Ungerade Zahlen \{1, 3, 5, …\}
+\item Mischung von zufälligen natürlichen Zahlen \{1, 2, 42, …\}
+\item Wir überprüfen 0 als Spezialfall, da ohne weitere Definition nicht klar ist, ob hier 0 in den natürlichen Zahlen liegt
+\end{itemize}
+Die Funktion erwartet eine natürliche Zahl, dabei sollten wir aber vor dem Überprüfen,
+ob die Zahl gerade ist, erstmal feststellen, ob die Eingabe eine gültige Eingabe ist.
+Was passiert bei z.B. Zeichenstrings, negativen Zahlen, Zahlenwerte mit Nachkommastellen usw.\\ \ \\
+Die konkreten Werte die man zum Testen verwenden kann sind: \texttt{-101, -100, 0, 64, 65, -0.5, 0.6}
+und ein beliebiges String das man vielleicht mit den Tasten des Taschenrechners eingeben kann z.B. „\texttt{(“} ;
